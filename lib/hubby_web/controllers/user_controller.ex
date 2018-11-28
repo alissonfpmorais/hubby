@@ -3,6 +3,7 @@ defmodule HubbyWeb.UserController do
 
   alias Hubby.Auth
   alias Hubby.Auth.User
+  alias Hubby.Hub
 
   action_fallback HubbyWeb.FallbackController
 
@@ -21,12 +22,14 @@ defmodule HubbyWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user = Auth.get_user!(id)
+    # user = Auth.get_user!(id)
+    user = Hub.get_user_details!(id)
     render(conn, "show.json", user: user)
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
-    user = Auth.get_user!(id)
+    # user = Auth.get_user!(id)
+    user = Hub.get_user_details!(id)
 
     with {:ok, %User{} = user} <- Auth.update_user(user, user_params) do
       render(conn, "show.json", user: user)
@@ -34,7 +37,8 @@ defmodule HubbyWeb.UserController do
   end
 
   def delete(conn, %{"id" => id}) do
-    user = Auth.get_user!(id)
+    # user = Auth.get_user!(id)
+    user = Hub.get_user_details!(id)
 
     with {:ok, %User{}} <- Auth.delete_user(user) do
       send_resp(conn, :no_content, "")

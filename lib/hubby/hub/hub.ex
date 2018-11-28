@@ -6,6 +6,17 @@ defmodule Hubby.Hub do
   import Ecto.Query, warn: false
   alias Hubby.Repo
 
+  alias Hubby.Auth
+
+  def get_user_details!(id) do
+    Auth.get_user!(id)
+    |> Repo.preload(:info)
+    |> Repo.preload(:projects)
+    |> Repo.preload(:techs)
+    |> Repo.preload(links: [:social])
+    # |> Repo.preload(:socials)
+  end
+
   alias Hubby.Hub.Info
 
   @doc """
