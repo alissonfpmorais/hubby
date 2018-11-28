@@ -12,7 +12,7 @@ config :logger, level: :warn
 # Configure your database
 config :hubby, Hubby.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "root",
   database: "hubby_test",
-  hostname: "localhost",
+  hostname: "postgres",
   pool: Ecto.Adapters.SQL.Sandbox
