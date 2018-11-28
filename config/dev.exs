@@ -8,7 +8,7 @@ use Mix.Config
 # with webpack to recompile .js and .css sources.
 config :hubby, HubbyWeb.Endpoint,
   http: [port: 4000],
-  debug_errors: true,
+  debug_errors: false,
   code_reloader: true,
   check_origin: false,
   watchers: []
@@ -50,7 +50,7 @@ config :phoenix, :plug_init_mode, :runtime
 # Configure your database
 config :hubby, Hubby.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "root",
   database: "hubby_dev",
-  hostname: "localhost",
+  hostname: "postgres",
   pool_size: 10
