@@ -16,7 +16,7 @@ defmodule Hubby.Hub.Tech do
   @doc false
   def changeset(tech, attrs) do
     tech
-    |> cast(attrs, [:name, :skill_level])
+    |> cast(attrs, [:name, :skill_level, :user_id])
     |> validate_required([:name, :skill_level])
     |> cast_assoc(:user)
   end

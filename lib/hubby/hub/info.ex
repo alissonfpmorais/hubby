@@ -18,7 +18,7 @@ defmodule Hubby.Hub.Info do
   @doc false
   def changeset(info, attrs) do
     info
-    |> cast(attrs, [:age, :phone, :gender, :is_available])
+    |> cast(attrs, [:age, :phone, :gender, :is_available, :user_id])
     |> validate_required([:gender, :is_available])
     |> cast_assoc(:user)
   end

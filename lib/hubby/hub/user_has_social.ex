@@ -18,7 +18,7 @@ defmodule Hubby.Hub.UserHasSocial do
   @doc false
   def changeset(user_has_social, attrs) do
     user_has_social
-    |> cast(attrs, [:url])
+    |> cast(attrs, [:url, :user_id, :social_id])
     |> validate_required([:url])
     |> cast_assoc(:user)
     |> cast_assoc(:social)

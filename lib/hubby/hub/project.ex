@@ -17,7 +17,7 @@ defmodule Hubby.Hub.Project do
   @doc false
   def changeset(project, attrs) do
     project
-    |> cast(attrs, [:name, :description, :url])
+    |> cast(attrs, [:name, :description, :url, :user_id])
     |> validate_required([:name, :description])
     |> cast_assoc(:user)
   end
