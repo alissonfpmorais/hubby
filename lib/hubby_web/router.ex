@@ -5,7 +5,7 @@ defmodule HubbyWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", HubbyWeb do
+  scope "/api/v1", HubbyWeb do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
   end
